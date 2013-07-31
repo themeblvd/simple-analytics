@@ -99,7 +99,7 @@ class Theme_Blvd_Simple_Analytics {
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '<?php echo $analytics['google_id']; ?>']);
+    _gaq.push(['_setAccount', '<?php echo esc_attr( $analytics['google_id'] ); ?>']);
     _gaq.push(['_trackPageview']);
 
     (function() {
