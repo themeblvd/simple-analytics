@@ -8,7 +8,7 @@ A simple plugin to include your Google Analtyics tracking.
 
 == Description ==
 
-This plugin allows you to quickly include your Google Analtyics tracking. After installing the plugin, just go to *Settings > Analytics* and input your Google Analytics Tracking ID.
+This plugin allows you to quickly include your Google Analytics tracking. After installing the plugin, just go to *Settings > Analytics* and input your Google Analytics Tracking ID.
 
 == Installation ==
 
