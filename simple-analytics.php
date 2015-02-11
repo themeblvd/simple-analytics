@@ -2,12 +2,12 @@
 /*
 Plugin Name: Simple Analytics
 Description: A simple plugin to include your Google Analtyics tracking.
-Version: 1.0.0
+Version: 1.0.1
 Author: Theme Blvd
 Author URI: http://themeblvd.com
 License: GPL2
 
-    Copyright 2013  Theme Blvd
+    Copyright 2015  Theme Blvd
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -25,7 +25,7 @@ License: GPL2
 
 */
 
-define( 'TB_SIMPLE_ANALYTICS_PLUGIN_VERSION', '1.0.0' );
+define( 'TB_SIMPLE_ANALYTICS_PLUGIN_VERSION', '1.0.1' );
 define( 'TB_SIMPLE_ANALYTICS_TWEEPLE_PLUGIN_DIR', dirname( __FILE__ ) );
 define( 'TB_SIMPLE_ANALYTICS_PLUGIN_URI', plugins_url( '' , __FILE__ ) );
 define( 'TB_SIMPLE_ANALYTICS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
