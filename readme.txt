@@ -27,6 +27,7 @@ This plugin allows you to quickly include your Google Analytics tracking. After 
 = 1.0.1 =
 
 * Updated output to latest Google Analytics tracking code (as of February, 2015).
+* GlotPress compatibility (for 2015 wordpress.org release).
 
 = 1.0.0 =
 

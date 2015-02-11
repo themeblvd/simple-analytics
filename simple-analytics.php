@@ -117,7 +117,7 @@ class Theme_Blvd_Simple_Analytics {
      * @since 1.0.0
      */
     public function admin_menu() {
-        add_options_page( __('Analytics', 'themeblvd_sai'), __('Analytics', 'themeblvd_sai'), 'edit_theme_options', 'simple-analytics', array( $this, 'settings_page' ) );
+        add_options_page( __('Analytics', 'simple-analytics'), __('Analytics', 'simple-analytics'), 'edit_theme_options', 'simple-analytics', array( $this, 'settings_page' ) );
     }
 
     /**
@@ -192,7 +192,7 @@ class Theme_Blvd_Simple_Analytics {
             <?php settings_errors( 'themeblvd_analytics' ); ?>
 
             <div id="icon-options-general" class="icon32"><br></div>
-            <h2><?php _e('Analytics', 'themeblvd_sai'); ?></h2>
+            <h2><?php _e('Analytics', 'simple-analytics'); ?></h2>
 
             <form method="POST" action="options.php">
 
@@ -202,24 +202,24 @@ class Theme_Blvd_Simple_Analytics {
                     <tbody>
                         <tr valign="top">
                             <th scope="row">
-                                <label for="themeblvd_analytics[code]"><?php _e('Google Tracking ID', 'themeblvd_sai'); ?></label>
+                                <label for="themeblvd_analytics[code]"><?php _e('Google Tracking ID', 'simple-analytics'); ?></label>
                             </th>
                             <td>
                                 <input name="themeblvd_analytics[google_id]" type="text" class="regular-text" value="<?php echo $code; ?>" />
-                                <p class="description"><?php _e('Input your Google Analytics "Tracking ID"<br />Example: UA-12345678-9', 'themeblvd_sai'); ?></p>
+                                <p class="description"><?php _e('Input your Google Analytics "Tracking ID"<br />Example: UA-12345678-9', 'simple-analytics'); ?></p>
                             </td>
                         </tr>
                         <tr valign="top">
                             <th scope="row">
-                                <label for="themeblvd_analytics[placement]"><?php _e('Analytics Placement', 'themeblvd_sai'); ?></label>
+                                <label for="themeblvd_analytics[placement]"><?php _e('Analytics Placement', 'simple-analytics'); ?></label>
                             </th>
                             <td>
                                 <fieldset>
                                     <label>
-                                        <input type="radio" name="themeblvd_analytics[placement]" value="head" <?php checked( 'head', $placement ); ?>> <span><?php _e('Include within <code>&lt;head&gt;</code> tag.', 'themeblvd_sai'); ?></span>
+                                        <input type="radio" name="themeblvd_analytics[placement]" value="head" <?php checked( 'head', $placement ); ?>> <span><?php _e('Include within <code>&lt;head&gt;</code> tag.', 'simple-analytics'); ?></span>
                                     </label><br>
                                     <label>
-                                        <input type="radio" name="themeblvd_analytics[placement]" value="foot" <?php checked( 'foot', $placement ); ?>> <span><?php _e('Include before closing <code>&lt;/body&gt;</code> tag.', 'themeblvd_sai'); ?></span>
+                                        <input type="radio" name="themeblvd_analytics[placement]" value="foot" <?php checked( 'foot', $placement ); ?>> <span><?php _e('Include before closing <code>&lt;/body&gt;</code> tag.', 'simple-analytics'); ?></span>
                                     </label><br>
                                 </fieldset>
                             </td>
@@ -246,3 +246,13 @@ function themeblvd_simple_analytics_init() {
     Theme_Blvd_Simple_Analytics::get_instance();
 }
 add_action( 'plugins_loaded', 'themeblvd_simple_analytics_init' );
+
+/**
+ * Register text domain for localization.
+ *
+ * @since 1.0.1
+ */
+function themeblvd_simple_analytics_textdomain() {
+  load_plugin_textdomain('simple-analytics');
+}
+add_action( 'init', 'themeblvd_simple_analytics_textdomain' );
