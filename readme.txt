@@ -10,6 +10,8 @@ A simple plugin to include your Google Analytics tracking.
 
 This plugin allows you to quickly include your Google Analytics tracking. After installing the plugin, just go to *Settings > Analytics* and input your Google Analytics Tracking ID.
 
+[vimeo https://vimeo.com/119387977]
+
 == Installation ==
 
 1. Upload `simple-analytics` folder to the `/wp-content/plugins/` directory
