@@ -2,7 +2,7 @@
 Author URI: http://www.jasonbobich.com
 Contributors: themeblvd
 Tags: google, analytics, tracking, Theme Blvd, themeblvd, Jason Bobich
-Stable Tag: 1.0.1
+Stable Tag: 1.0.2
 
 A simple plugin to include your Google Analytics tracking.
 
@@ -25,6 +25,8 @@ This plugin allows you to quickly include your Google Analytics tracking. After 
 1. The settings page at Settings > Analytics.
 
 == Changelog ==
+
+= 1.0.2 =
 
 = 1.0.1 =
 
