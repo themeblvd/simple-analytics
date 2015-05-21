@@ -235,7 +235,7 @@ class Theme_Blvd_Simple_Analytics {
                                     </label><br>
                                     <?php if ( defined('TB_FRAMEWORK_VERSION') ) : // Only Theme Blvd theme will have an action hook for this ?>
                                         <label>
-                                            <input type="radio" name="themeblvd_analytics[placement]" value="body" <?php checked( 'body', $placement ); ?>> <span><?php _e('Immediately after the opening <code>&lt;body&gt;</code> tag.', 'simple-analytics'); ?></span>
+                                            <input type="radio" name="themeblvd_analytics[placement]" value="body" <?php checked( 'body', $placement ); ?>> <span><?php _e('Include immediately after the opening <code>&lt;body&gt;</code> tag.', 'simple-analytics'); ?></span>
                                         </label><br>
                                     <?php endif; ?>
                                     <label>
