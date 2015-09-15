@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple Analytics
-Description: A simple plugin to include your Google Analtyics tracking.
+Description: A simple plugin to include your Google Analytics tracking.
 Version: 1.0.3
 Author: Theme Blvd
 Author URI: http://themeblvd.com

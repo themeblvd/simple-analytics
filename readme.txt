@@ -28,6 +28,8 @@ This plugin allows you to quickly include your Google Analytics tracking. After 
 
 = 1.0.3 =
 
+* Fixed: Typo in plugin description.
+
 = 1.0.2 =
 
 * Added option to include tracking immediately after opening `<body>` tag (only for Theme Blvd themes).
