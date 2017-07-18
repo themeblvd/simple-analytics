@@ -1,4 +1,5 @@
 === Simple Analytics ===
+
 Author URI: http://www.jasonbobich.com
 Contributors: themeblvd
 Tags: google, analytics, tracking, Theme Blvd, themeblvd, Jason Bobich
@@ -27,6 +28,8 @@ This plugin allows you to quickly include your Google Analytics tracking. After 
 == Changelog ==
 
 = 1.1.0 =
+
+* New: To avoid confusion, instead of *not* outputting analytics code in website source for the logged-in admin user, it is now outputted but commented out with explanation.
 
 = 1.0.3 =
 

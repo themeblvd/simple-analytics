@@ -70,7 +70,7 @@ class Theme_Blvd_Simple_Analytics {
 	private function __construct() {
 
 		// Output Analytics.
-		if ( ! is_admin() && ! current_user_can( 'edit_theme_options' ) ) {
+		if ( ! is_admin() ) {
 
 			add_action( 'after_setup_theme', array( $this, 'add_output' ) );
 
@@ -118,10 +118,18 @@ class Theme_Blvd_Simple_Analytics {
 
 		$analytics = get_option( 'themeblvd_analytics' );
 
-		if ( ! empty( $analytics['google_id'] ) ) :
+		if ( ! empty( $analytics['google_id'] ) ) {
+
+			echo "<!-- Simple Analytics by Theme Blvd -->\n";
+
+			if ( current_user_can( 'edit_theme_options' ) ) {
+
+				echo '<!-- ' . esc_html__( 'Analytics code commented out because you are logged in as an admin.', 'simple-analytics' ) . "\n";
+
+			}
 ?>
-<!-- Simple Analytics by Theme Blvd -->
 <script>
+
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -132,8 +140,12 @@ class Theme_Blvd_Simple_Analytics {
 
 </script>
 <?php
-		endif;
+			if ( current_user_can( 'edit_theme_options' ) ) {
 
+				echo "-->\n";
+
+			}
+		}
 	}
 
 	/**
