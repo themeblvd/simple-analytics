@@ -137,6 +137,13 @@ class Theme_Blvd_Simple_Analytics {
 
 	ga('create', '<?php echo esc_attr( $settings['google_id'] ); ?>', 'auto');
 	ga('send', 'pageview');
+	<?php
+	if ( ! empty( $settings['anonymize'] ) ) {
+
+		echo "ga('set', 'anonymizeIp', true);\n";
+
+	}
+	?>
 
 </script>
 <?php
@@ -194,7 +201,11 @@ class Theme_Blvd_Simple_Analytics {
 
 		$allowed_tags = array_merge( $allowedposttags, array( 'script' => array( 'type' => true, 'src' => true ) ) );
 
-		$output = array();
+		$output = array(
+			'google_id'	=> '',
+			'placement'	=> 'body',
+			'anonymize' => false,
+		);
 
 		foreach ( $input as $key => $value ) {
 
@@ -214,9 +225,15 @@ class Theme_Blvd_Simple_Analytics {
 
 						$output[ $key ] = $value;
 
-					} else {
+					}
 
-						$output[ $key ] = $choices[0];
+					break;
+
+				case 'anonymize' :
+
+					if ( '1' === $value ) {
+
+						$output[ $key ] = true;
 
 					}
 
@@ -259,6 +276,14 @@ class Theme_Blvd_Simple_Analytics {
 			$placement = 'head';
 
 		}
+
+		$anonymize = false;
+
+		if ( isset( $settings['anonymize'] ) ) {
+
+			$anonymize = $settings['anonymize'];
+
+		}
 		?>
 		<div class="wrap">
 
@@ -274,16 +299,16 @@ class Theme_Blvd_Simple_Analytics {
 
 				<table class="form-table">
 					<tbody>
-						<tr valign="top">
+						<tr>
 							<th scope="row">
 								<label for="themeblvd_analytics[code]"><?php esc_html_e( 'Google Tracking ID', 'simple-analytics' ); ?></label>
 							</th>
 							<td>
 								<input name="themeblvd_analytics[google_id]" type="text" class="regular-text" value="<?php echo esc_attr( $code ); ?>" />
-								<p class="description"><?php echo esc_html__( 'Input your Google Analytics "Tracking ID"', 'simple-analytics') . '<br>' . esc_html__( 'Example: UA-12345678-9', 'simple-analytics' ); ?></p>
+								<p class="description"><?php echo esc_html__( 'Input your Google Analytics "Tracking ID"', 'simple-analytics' ) . '<br>' . esc_html__( 'Example: UA-12345678-9', 'simple-analytics' ); ?></p>
 							</td>
 						</tr>
-						<tr valign="top">
+						<tr>
 							<th scope="row">
 								<label for="themeblvd_analytics[placement]"><?php esc_html_e( 'Analytics Placement', 'simple-analytics' ); ?></label>
 							</th>
@@ -300,6 +325,22 @@ class Theme_Blvd_Simple_Analytics {
 									<label>
 										<input type="radio" name="themeblvd_analytics[placement]" value="foot" <?php checked( 'foot', $placement ); ?>> <span><?php printf( esc_html__( 'Include before closing %s tag.', 'simple-analytics' ), '<code>&lt;/body&gt;</code>' ); ?></span>
 									</label><br>
+								</fieldset>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label for="themeblvd_analytics[code]"><?php esc_html_e( 'IP Anonymization', 'simple-analytics' ); ?></label>
+							</th>
+							<td>
+								<fieldset>
+									<legend class="screen-reader-text">
+										<span>IP Anonymization</span>
+									</legend>
+									<label>
+										<input name="themeblvd_analytics[anonymize]" type="checkbox" value="1" <?php checked( true, $anonymize ); ?>>
+										<?php esc_html_e( 'Anonymize IP addresses in tracking code.', 'simple-analytics' ); ?>
+									</label>
 								</fieldset>
 							</td>
 						</tr>
