@@ -29,6 +29,8 @@ This plugin allows you to quickly include your Google Analytics tracking. After 
 
 = 1.1.1 =
 
+* Fixed: Location of anonymizeIp code.
+
 = 1.1.0 =
 
 * New: To avoid confusion, instead of *not* outputting analytics code in website source for the logged-in admin user, it is now outputted but commented out with explanation.

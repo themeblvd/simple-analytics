@@ -120,6 +120,20 @@ class Theme_Blvd_Simple_Analytics {
 
 		if ( ! empty( $settings['google_id'] ) ) {
 
+			$google_id = esc_attr( $settings['google_id'] );
+
+			// Generate ga() JS code.
+			$ga = "ga('create', '{$google_id}', 'auto');\n";
+
+			if ( ! empty( $settings['anonymize'] ) ) {
+
+				$ga .= "\tga('set', 'anonymizeIp', true);\n";
+
+			}
+
+			$ga .= "\tga('send', 'pageview');\n";
+
+			// Start output.
 			echo "<!-- Simple Analytics by Theme Blvd -->\n";
 
 			if ( current_user_can( 'edit_theme_options' ) ) {
@@ -135,15 +149,7 @@ class Theme_Blvd_Simple_Analytics {
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', '<?php echo esc_attr( $settings['google_id'] ); ?>', 'auto');
-	<?php
-	if ( ! empty( $settings['anonymize'] ) ) {
-
-		echo "ga('set', 'anonymizeIp', true);";
-
-	}
-	?>
-	ga('send', 'pageview');
+	<?php echo wp_kses( $ga, array() ); ?>
 
 </script>
 <?php
