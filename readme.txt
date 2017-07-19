@@ -19,7 +19,7 @@ This plugin allows you to quickly include your Google Analytics tracking. After 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to *Settings > Analytics* to configure.
 
-*Note: Tracking code will not be inserted for the logged-in admin user.*
+*Note: Tracking code will not be active for the logged-in admin user.*
 
 == Screenshots ==
 

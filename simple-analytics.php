@@ -116,9 +116,9 @@ class Theme_Blvd_Simple_Analytics {
 	 */
 	public function output() {
 
-		$analytics = get_option( 'themeblvd_analytics' );
+		$settings = get_option( 'themeblvd_analytics' );
 
-		if ( ! empty( $analytics['google_id'] ) ) {
+		if ( ! empty( $settings['google_id'] ) ) {
 
 			echo "<!-- Simple Analytics by Theme Blvd -->\n";
 
@@ -135,7 +135,7 @@ class Theme_Blvd_Simple_Analytics {
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', '<?php echo esc_attr( $analytics['google_id'] ); ?>', 'auto');
+	ga('create', '<?php echo esc_attr( $settings['google_id'] ); ?>', 'auto');
 	ga('send', 'pageview');
 
 </script>
@@ -280,7 +280,7 @@ class Theme_Blvd_Simple_Analytics {
 							</th>
 							<td>
 								<input name="themeblvd_analytics[google_id]" type="text" class="regular-text" value="<?php echo esc_attr( $code ); ?>" />
-								<p class="description"><?php esc_html_e( 'Input your Google Analytics "Tracking ID"<br />Example: UA-12345678-9', 'simple-analytics' ); ?></p>
+								<p class="description"><?php echo esc_html__( 'Input your Google Analytics "Tracking ID"', 'simple-analytics') . '<br>' . esc_html__( 'Example: UA-12345678-9', 'simple-analytics' ); ?></p>
 							</td>
 						</tr>
 						<tr valign="top">
@@ -290,15 +290,15 @@ class Theme_Blvd_Simple_Analytics {
 							<td>
 								<fieldset>
 									<label>
-										<input type="radio" name="themeblvd_analytics[placement]" value="head" <?php checked( 'head', $placement ); ?>> <span><?php esc_html_e( 'Include within <code>&lt;head&gt;</code> tag.', 'simple-analytics' ); ?></span>
+										<input type="radio" name="themeblvd_analytics[placement]" value="head" <?php checked( 'head', $placement ); ?>> <span><?php printf( esc_html__( 'Include within %s tag.', 'simple-analytics' ), '<code>&lt;head&gt;</code>' ); ?></span>
 									</label><br>
 									<?php if ( defined( 'TB_FRAMEWORK_VERSION' ) ) : // Only Theme Blvd theme will have an action hook for this. ?>
 										<label>
-											<input type="radio" name="themeblvd_analytics[placement]" value="body" <?php checked( 'body', $placement ); ?>> <span><?php esc_html_e( 'Include immediately after the opening <code>&lt;body&gt;</code> tag.', 'simple-analytics' ); ?></span>
+											<input type="radio" name="themeblvd_analytics[placement]" value="body" <?php checked( 'body', $placement ); ?>> <span><?php printf( esc_html__( 'Include immediately after the opening %s tag.', 'simple-analytics' ), '<code>&lt;body&gt;</code>' ); ?></span>
 										</label><br>
 									<?php endif; ?>
 									<label>
-										<input type="radio" name="themeblvd_analytics[placement]" value="foot" <?php checked( 'foot', $placement ); ?>> <span><?php esc_html_e( 'Include before closing <code>&lt;/body&gt;</code> tag.', 'simple-analytics' ); ?></span>
+										<input type="radio" name="themeblvd_analytics[placement]" value="foot" <?php checked( 'foot', $placement ); ?>> <span><?php printf( esc_html__( 'Include before closing %s tag.', 'simple-analytics' ), '<code>&lt;/body&gt;</code>' ); ?></span>
 									</label><br>
 								</fieldset>
 							</td>
