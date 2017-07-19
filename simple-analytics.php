@@ -136,14 +136,14 @@ class Theme_Blvd_Simple_Analytics {
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	ga('create', '<?php echo esc_attr( $settings['google_id'] ); ?>', 'auto');
-	ga('send', 'pageview');
 	<?php
 	if ( ! empty( $settings['anonymize'] ) ) {
 
-		echo "ga('set', 'anonymizeIp', true);\n";
+		echo "ga('set', 'anonymizeIp', true);";
 
 	}
 	?>
+	ga('send', 'pageview');
 
 </script>
 <?php
