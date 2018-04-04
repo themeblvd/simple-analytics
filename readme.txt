@@ -4,6 +4,7 @@ Author URI: http://themeblvd.com
 Contributors: themeblvd
 Tags: google, analytics, tracking, Theme Blvd, themeblvd, Jason Bobich
 Stable Tag: 1.1.1
+Tested up to: 4.9
 
 A simple plugin to include your Google Analytics tracking.
 
